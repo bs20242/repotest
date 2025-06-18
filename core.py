@@ -11,5 +11,3 @@ print("Subtração 10 - 4 =", subtrair(16, 4))
 # Multiplicação
 print("Multiplicação 7 * 6 =", multiplicar(7, 3))  
 
-# Divisão
-print("Divisão 20 / 5 =", dividir(20, 5)) 
