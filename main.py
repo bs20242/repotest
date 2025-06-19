@@ -13,6 +13,8 @@ def somar(valores: Operacao):
 
 @app.post("/subtração")
 def subtrair(valores: Operacao):
-    return {"resultado": valores.i - valores.j}
+    return {"resultado": valores.i - valores.j} 
+
+
 
 
