@@ -11,10 +11,5 @@ class Operacao(BaseModel):
 def somar(valores: Operacao):
     return {"resultado": valores.i + valores.j}
 
-@app.post("/subtração")
-def subtrair(valores: Operacao):
-    return {"resultado": valores.i - valores.j} 
-
-
 
 
