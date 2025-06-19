@@ -19,12 +19,5 @@ public class Usuario {
         return s.equals(this.senha);
     }
 
-    public String toString() {
-        return this.nome + " - CPF: " + this.cpf;
-    }
-
-    public String getCpf() {
-        return this.cpf;
-    }
 
 }
