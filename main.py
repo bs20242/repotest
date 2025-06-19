@@ -1,15 +1,3 @@
 from fastapi import FastAPI
-from pydantic import BaseModel
-
-app = FastAPI()
-
-class Operacao(BaseModel):
-    i: float
-    j: float
-
-@app.post("/soma")
-def somar(valores: Operacao):
-    return {"resultado": valores.i + valores.j}
-
 
 

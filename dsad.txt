@@ -1,0 +1,5 @@
+*Python** (versão 3.11 ou superior)
+2.  **Git**
+3.  **GitHub CLI (`gh`)**: Após instalar, logue com sua conta do GitHub executando "gh auth login" no seu terminal. (só precisa uma vez no pc)
+
+=================================================================================================================================================
