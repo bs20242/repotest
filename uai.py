@@ -1,4 +1,3 @@
-# Arquivo: cw_runner.py (VERSÃO FINAL COM CORREÇÃO DE CAMINHO)
 import os
 import sys
 from .crew import Codewise
