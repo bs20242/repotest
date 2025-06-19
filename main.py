@@ -15,12 +15,4 @@ def somar(valores: Operacao):
 def subtrair(valores: Operacao):
     return {"resultado": valores.i - valores.j}
 
-@app.post("/multiplicação")
-def multiplicar(valores: Operacao):
-    return {"resultado": valores.i * valores.j}
 
-@app.post("/divisão")
-def dividir(valores: Operacao):
-    if valores.j == 0:
-        return {"divisão por zero"}
-    return {"resultado": valores.i / valores.j}
