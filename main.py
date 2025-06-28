@@ -11,3 +11,7 @@ print("Subtração 10 - 4 =", subtrair(10, 4))
 # Multiplicação
 print("Multiplicação 8 * 9 =", multiplicar(8, 9))
 
+
+
+# Multiplicação
+print("Multiplicação 8 * 9 =", multiplicar(10, 5))
