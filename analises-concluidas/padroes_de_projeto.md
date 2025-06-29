@@ -3,7 +3,7 @@
 
 ## Aplicação de Padrões de Projeto
 
-Este documento detalha a aplicação de padrões de projeto para melhorar a modularidade, o baixo acoplamento e a organização do código no projeto, com base nas informações fornecidas nos commits e nas análises anteriores.  We will also address the creation of the `kdosapkd` virtual environment and its impact on design choices.
+Este documento detalha a aplicação de padrões de projeto para melhorar a modularidade, o baixo acoplamento e a organização do código no projeto, com base nas informações fornecidas nos commits e nas análises anteriores. We will also address the creation of the `kdosapkd` virtual environment and its impact on design choices, as well as the duplicated lines found in `main.py`.
 
 ### 1. Abstração da Biblioteca `c_lib` (Facade e Adapter)
 
@@ -278,11 +278,49 @@ Este documento detalha a aplicação de padrões de projeto para melhorar a modu
 *   **Legibilidade:** Melhora a legibilidade do histórico do Git.
 *   **Automação:** Facilita a geração automática de changelogs.
 
-### 5. Impact of Virtual Environment on Design Patterns
+### 5. Eliminating Duplicated Code (Refactoring)
+
+**Problem:** The `main.py` file contains duplicated lines of code, specifically multiple calls to `print("Subtração 10 - 4 =", subtrair(10, 4))`. This violates the DRY (Don't Repeat Yourself) principle.
+
+**Solution:** Remove the duplicated lines.
+
+**Refactored `main.py`:**
+
+```python
+# main.py
+from c_lib import somar, subtrair, multiplicar, dividir
+
+print("Testando a Calculadora:\n")
+
+# Soma
+print("Soma 5 + 3 =", somar(5, 3))
+
+# Subtração
+print("Subtração 10 - 4 =", subtrair(10, 4))
+
+# Multiplicação
+print("Multiplicação 8 * 9 =", multiplicar(8, 9))
+
+# Divisão
+try:
+    print("Divisão 10 / 5 =", dividir(10, 5))
+except ZeroDivisionError:
+    print("Erro: Divisão por zero!")
+except Exception as e:
+    print(f"Ocorreu um erro: {e}")
+```
+
+**Justification:**
+
+*   **Improved Readability:** Removing duplicated code makes the code easier to understand.
+*   **Reduced Maintenance:**  Changes only need to be made in one place, reducing the risk of errors and inconsistencies.
+*   **Adherence to DRY:** Eliminates unnecessary repetition.
+
+### 6. Impact of Virtual Environment on Design Patterns
 
 The creation and use of the `kdosapkd` virtual environment does not directly implement a specific GoF design pattern. However, it significantly *enables* and *supports* good design principles and the application of patterns by:
 
-*   **Dependency Management:**  Isolating project dependencies, preventing conflicts, and ensuring reproducibility.  This indirectly supports the Dependency Inversion Principle (DIP) by allowing the project to depend on abstract dependencies defined within the environment rather than concrete system-wide installations.
+*   **Dependency Management:** Isolating project dependencies, preventing conflicts, and ensuring reproducibility. This indirectly supports the Dependency Inversion Principle (DIP) by allowing the project to depend on abstract dependencies defined within the environment rather than concrete system-wide installations.
 *   **Testability:** Providing a clean and consistent environment for running tests.
 *   **Collaboration:** Ensuring that all developers are using the same versions of dependencies.
 
@@ -290,5 +328,5 @@ Therefore, while not a pattern *per se*, the virtual environment is a crucial *t
 
 ### Conclusão
 
-A aplicação desses padrões de projeto visa melhorar a modularidade, o baixo acoplamento, a testabilidade e a manutenibilidade do projeto. A abstração da biblioteca `c_lib` com Facade e Adapter, a utilização de Factory Method para a criação de implementações, o uso de Strategy para o tratamento de erros e a padronização dos commits são passos importantes para garantir a qualidade e a escalabilidade do código.  The adoption of a virtual environment further enhances these benefits by providing a controlled and isolated environment for development and testing.
+A aplicação desses padrões de projeto visa melhorar a modularidade, o baixo acoplamento, a testabilidade e a manutenibilidade do projeto. The refactoring to remove duplicated code in `main.py` directly addresses a critical code quality issue. The abstraction of the `c_lib` library with Facade and Adapter, the utilization of Factory Method for the creation of implementations, the use of Strategy for error handling, and the standardization of commits are important steps to ensure the quality and scalability of the code. The adoption of a virtual environment further enhances these benefits by providing a controlled and isolated environment for development and testing.
 ```
